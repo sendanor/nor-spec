@@ -3,7 +3,9 @@
 
 var ARRAY = require('nor-array');
 var debug = require('nor-debug');
+var types = require('./types/');
 
+/** */
 function index_builder(spec, opts) {
 	debug.assert(spec).is('object');
 	debug.assert(spec.type).ignore(undefined).is('string');
@@ -29,11 +31,12 @@ function index_builder(spec, opts) {
 
 	//debug.log('spec = ', JSON.stringify(spec, null, 2));
 
-	return require('./types/' + spec.type + '.js')(spec);
+	return types[spec.type](spec);
 }
 
 module.exports = {
-	'index': index_builder
+	'index': index_builder,
+	'types': types,
 };
 
 /** EOF */

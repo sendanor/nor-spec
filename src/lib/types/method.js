@@ -48,10 +48,11 @@ module.exports = function(spec) {
 		}).valueOf();
 
 		// Returns full request handler
-		return function(req, res) {
+		return function() {
+			var args = Array.prototype.slice.call(arguments);
 			return ARRAY(steps).reduce(function(a, b) {
 				debug.assert(b).is('function');
-				return a.then( b.bind(undefined, req, res) );
+				return a.then( b.bind.apply(b, [undefined].concat( args ) ) );
 			}, $Q());
 		};
 	};
