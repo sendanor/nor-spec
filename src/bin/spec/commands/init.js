@@ -1,7 +1,9 @@
-/** Init working directory */
-var fs = require('nor-fs');
+"use strict";
 
-module.exports = function(context) {
+//var fs = require('nor-fs');
+
+/** Init working directory */
+module.exports = function(/*context*/) {
 
 	// Check if spec.json exists, and create if it does not.
 

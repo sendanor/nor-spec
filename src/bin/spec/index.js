@@ -7,6 +7,7 @@
 "use strict";
 
 var debug = require('nor-debug');
+var FUNCTION = require('nor-function');
 var _Q = require('q');
 var fs = require('nor-fs');
 var ARRAY = require('nor-array');
@@ -46,7 +47,7 @@ _Q.fcall(function() {
 		}
 		return fun;
 	}).reduce(function(a, b) {
-		return a.then( b.bind(undefined, context) );
+		return a.then( FUNCTION(b).curry(context) );
 	}, _Q());
 
 }).fail(function(err) {
