@@ -1,6 +1,6 @@
 {
   "name": "nor-spec",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Sendanor JavaScript Framework",
   "main": "src/index.js",
   "scripts": {

@@ -47,6 +47,8 @@ module.exports = function(spec) {
 			ARRAY(Object.keys(spec.routes)).forEach(function(key) {
 				if(is.func(modules[key])) {
 					tmp[key] = modules[key](opts);
+				} else if(is.obj(modules[key])) {
+					tmp[key] = modules[key];
 				}
 			});
 		}
